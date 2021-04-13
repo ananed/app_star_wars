@@ -3,15 +3,15 @@ import { Grid } from "semantic-ui-react";
 
 export default function People(props) {
   return (
-    <div>
+    <div className="all">
       <p className="titulo">Star Wars Catalog</p>
       <Grid columns={3}>
         {props.data &&
           props.data.map((people, i) => {
             return (
+              <div>
               <div className="titulo_card">
                 <strong className="nombre">{people.name}</strong>
-                <div className="other">
                   <p className="elemento">
                     <strong>Height: </strong>
                     {people.height}
@@ -24,7 +24,8 @@ export default function People(props) {
                     <strong>Films: </strong>
                     {people.films.length}
                   </p>
-                </div>
+                
+              </div>
               </div>
             );
           })}
