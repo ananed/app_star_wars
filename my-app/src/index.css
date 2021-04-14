@@ -1,36 +1,24 @@
 body {
-  margin: 0;
   font-family: 'Raleway', sans-serif;
   background-color: #dfe4ea;
 }
 
-
-
-.titulo_card{
-  color:black;
-  font-size: 20px;
-  border: 1px solid #fab1a0;
-  background-color: #fab1a0;
-  border-radius: 10px;
-  opacity: .85;
-  font-weight: 600;
-  margin: 10px;
-  text-align: center;
-  
+.container{
+ 
 }
 
-.titulo_card:hover,
-.titulo_card:focus {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.elemento{
-  display: flex;
+.row{
+  background-color: coral;
   text-align: center;
   justify-content: center;
+  width: 20%;
+  padding-left: 1px;
+  padding-bottom: 10px;
+  padding-right: 1px;
+  padding-top: 20px;
+  margin: 10px;
+  border-radius: 10px;
 }
-
 
 .titulo{
   font-size: 55px;
@@ -38,31 +26,10 @@ body {
   color: black;
   height:100px;
   margin:0px auto;
+  justify-content: center;
+  text-align: center;
 }
 
-.nombre{
- color: #2d3436;
- font-size: 22px;
- font-family: bold;
-}
 
-.boton{
-  font-size: 40px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-radius: 5px;
-  background-color: #e74c3c;
-  font-weight: bold;
-  color: white;
-  border-color: #e74c3c;
-  box-shadow: none;
-  opacity: .80;
-}
 
-.boton:hover{
-  cursor: pointer;
-  opacity: 1;
-  background-color: #c0392b;
-}
+
