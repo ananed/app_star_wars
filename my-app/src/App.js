@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import PeopleContainer from "./components/People";
+import PeopleContainer from "./People";
+import { Routes, Route } from "react-router-dom";
+import Card from "./card";
+import People from "./People";
 
 function App() {
   //inicializo el estado inicial de esto
@@ -30,6 +33,12 @@ function App() {
     setIsLoading(false);
   }
 
+  <div>
+    <Routes>
+      <Route path="/" element={<People />}/>
+      <Route path="/card" element={<Card />}/>
+    </Routes>
+  </div>;
   //en return se utiliza (e) => fetchNext(e) para llamar a la funcion fetchNext con el evento e
   return (
     <div className="App">
@@ -47,3 +56,5 @@ function App() {
   );
 }
 export default App;
+
+
