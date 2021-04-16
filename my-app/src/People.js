@@ -1,5 +1,7 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
+import {Link} from "react-router-dom";
+
 
 export default function People(props) {
   return (
@@ -11,6 +13,8 @@ export default function People(props) {
             return (
               <div>
               <div className="container">
+              <nav>
+              <Link to="card">
               <div className="row">
                 <strong className="nombre">{people.name}</strong>
                   <div className="col">
@@ -23,6 +27,8 @@ export default function People(props) {
                     <p><strong>Films: </strong>{people.films.length}</p>
                   </div>
               </div>
+              </Link>
+              </nav>
               </div>
               </div>
             );

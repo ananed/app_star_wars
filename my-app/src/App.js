@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import PeopleContainer from "./People";
-import { Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import Card from "./card";
 import People from "./People";
+
 
 function App() {
   //inicializo el estado inicial de esto
@@ -32,12 +37,10 @@ function App() {
     setPeople([...people, ...data.results]);
     setIsLoading(false);
   }
-
   <div>
-    <Routes>
-      <Route path="/" element={<People />}/>
-      <Route path="/card" element={<Card />}/>
-    </Routes>
+    <Route path="/" element={<People />} />
+    <Route path="/card" element={<Card />} />
+    <Route path="*" element={<Whoops404 />} />
   </div>;
   //en return se utiliza (e) => fetchNext(e) para llamar a la funcion fetchNext con el evento e
   return (
@@ -52,9 +55,16 @@ function App() {
           Get more
         </button>
       )}
+      ;
     </div>
   );
 }
 export default App;
 
-
+export function Whoops404(){
+  return(
+    <div>
+    <h1>This page does not exist.</h1>
+    </div>
+  );
+}
