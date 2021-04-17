@@ -1,70 +1,17 @@
-import React, { useState, useEffect } from "react";
-import PeopleContainer from "./People";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import Card from "./card";
-import People from "./People";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
+import Home from "./Home";
+import Card from "./Card";
 
 function App() {
-  //inicializo el estado inicial de esto
-  const [people, setPeople] = useState([]);
-  const [next, setNext] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  //voy a cambiar el estado con los datos de la API
-  useEffect(() => {
-    //voy a poner la funcion fetch pero de otra forma
-    async function fetchPeople() {
-      let res = await fetch("https://swapi.py4e.com/api/people");
-      let data = await res.json();
-      setNext(data.next);
-      setPeople(data.results);
-    }
-
-    fetchPeople();
-  }, []);
-
-  async function fetchNext(e) {
-    e.preventDefault();
-    setIsLoading(true);
-    let res = await fetch(next);
-    let data = await res.json();
-    setNext(data.next);
-    setPeople([...people, ...data.results]);
-    setIsLoading(false);
-  }
-  <div>
-    <Route path="/" element={<People />} />
-    <Route path="/card" element={<Card />} />
-    <Route path="*" element={<Whoops404 />} />
-  </div>;
-  //en return se utiliza (e) => fetchNext(e) para llamar a la funcion fetchNext con el evento e
   return (
-    <div className="App">
-      <PeopleContainer data={people} />
-      {isLoading ? (
-        <button className="boton" disabled>
-          Loading ...
-        </button>
-      ) : (
-        <button className="boton" onClick={(e) => fetchNext(e)}>
-          Get more
-        </button>
-      )}
-      ;
+    <div>
+      <Switch>
+        <Route path="/" element={Home} />
+        <Route path="/card" element={Card} />
+      </Switch>
     </div>
   );
 }
 export default App;
-
-export function Whoops404(){
-  return(
-    <div>
-    <h1>This page does not exist.</h1>
-    </div>
-  );
-}

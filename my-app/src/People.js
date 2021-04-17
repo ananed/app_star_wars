@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import {Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function People(props) {
   return (
@@ -11,26 +10,34 @@ export default function People(props) {
         {props.data &&
           props.data.map((people, i) => {
             return (
-              <div>
-              <div className="container">
-              <nav>
-              <Link to="card">
-              <div className="row">
-                <strong className="nombre">{people.name}</strong>
-                  <div className="col">
-                    <p><strong>Height: </strong>{people.height}</p>
+              <Link to={`/card/${people.id}`}>
+                <div>
+                  <div className="container">
+                    <div className="row">
+                      <strong className="nombre">{people.name}</strong>
+                      <div className="col">
+                        <p>
+                          <strong>Height: </strong>
+                          {people.height}
+                        </p>
+                      </div>
+                      <div className="col">
+                        <p>
+                          {" "}
+                          <strong>Birth Year: </strong>
+                          {people.birth_year}
+                        </p>
+                      </div>
+                      <div className="col">
+                        <p>
+                          <strong>Films: </strong>
+                          {people.films.length}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col">
-                    <p> <strong>Birth Year: </strong>{people.birth_year}</p>
-                  </div>
-                  <div className="col">
-                    <p><strong>Films: </strong>{people.films.length}</p>
-                  </div>
-              </div>
+                </div>
               </Link>
-              </nav>
-              </div>
-              </div>
             );
           })}
       </Grid>
